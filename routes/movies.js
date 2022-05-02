@@ -35,6 +35,29 @@ router.get("/:id", async (req, res) => {
   }
 });
 
+// get movie by name -> search functionality
+router.post("/get-movie", async (req, res) => {
+  let getMovie = req.body.name;
+  try {
+    const data = await movie.find({
+      name: { $regex: getMovie, $options: "i" },
+    });
+    if (data.length !== 0) {
+      res.send({ message: "Movie Found!", status: true, data: data });
+    } else {
+      res.send({
+        message: "Movie not found! Please try the recommended movies.",
+        status: false,
+        data: data,
+      });
+    }
+  } catch (err) {
+    console.log(req.params.name);
+    console.log(err);
+    res.send({ message: "Error in connection!", status: false, error: err });
+  }
+});
+
 //add movie
 router.post("/add-movie", async (req, res) => {
   try {

@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 
+// movie document structure
 const MovieSchema = new mongoose.Schema({
   name: {
     type: String,
@@ -17,10 +18,13 @@ const MovieSchema = new mongoose.Schema({
     type: String,
   },
   rating: {
-    type: Number,
+    type: String,
   },
   cast: {
     type: Object,
+  },
+  review: {
+    type: Array,
   },
 });
 
