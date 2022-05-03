@@ -26,6 +26,12 @@ const MovieSchema = new mongoose.Schema({
   review: {
     type: Array,
   },
+  hearts: {
+    type: Number,
+  },
+  votes: {
+    type: Number,
+  },
 });
 
 const movie = mongoose.model("movie", MovieSchema);
