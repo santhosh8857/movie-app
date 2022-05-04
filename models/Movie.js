@@ -8,6 +8,9 @@ const MovieSchema = new mongoose.Schema({
   poster: {
     type: String,
   },
+  showcase: {
+    type: String,
+  },
   description: {
     type: String,
   },
@@ -31,6 +34,9 @@ const MovieSchema = new mongoose.Schema({
   },
   votes: {
     type: Number,
+  },
+  release: {
+    type: String,
   },
 });
 
