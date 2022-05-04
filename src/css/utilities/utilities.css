@@ -1,0 +1,60 @@
+/* root */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul {
+  list-style: none;
+}
+
+h1,
+h2 {
+  font-weight: 300;
+  line-height: 1.2;
+}
+
+/* buttons */
+.btn {
+  display: inline-block;
+  padding: 10px 30px;
+  color: #10101c;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.btn-primary {
+  background-color: #de3e34;
+  border: 0.5px solid #de3e34;
+}
+
+.btn-primary:hover {
+  background-color: #e22113;
+  cursor: pointer;
+}
+
+.btn-remove {
+  color: #de3e34;
+  background-color: #fff;
+  border: 0.5px solid #de3e34;
+}
+
+.btn-remove:hover {
+  color: #fff;
+  background-color: #de3e34;
+  cursor: pointer;
+}
+
+/* texts */
+.text-primary {
+  color: #de3e34;
+}
+
+.heading {
+  color: #ccc;
+  font-weight: 500;
+  font-size: 30px;
+  padding: 10px 0;
+}

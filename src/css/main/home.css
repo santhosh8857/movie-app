@@ -1,0 +1,55 @@
+.showcase {
+  height: 45vh;
+}
+
+#showcase1 {
+  background-image: url("../../images/kgf-showcase.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+}
+
+#showcase2 {
+  background-image: url("../../images/marvel-showcase.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+}
+
+.arrow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+.arrow-icon {
+  padding: 20px 15px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  opacity: 0.5;
+}
+
+.arrow-icon:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}
+
+/* movie-card */
+.card-section {
+  background-color: #10101c;
+  height: 85vh;
+}
+
+.card-section-container {
+  width: 90%;
+  margin: auto;
+}
+
+.card-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

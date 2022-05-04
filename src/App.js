@@ -1,9 +1,13 @@
+import Home from "./components/main/Home";
+
 import "./App.css";
+import "./css/utilities/utilities.css";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">Learn React</header>
+      <Home />
+      {/* <Footer /> */}
     </div>
   );
 }

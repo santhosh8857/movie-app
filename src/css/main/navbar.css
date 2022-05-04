@@ -1,0 +1,47 @@
+.nav-container {
+  background-color: #10101c;
+  height: 100%;
+  padding: 10px;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.navbar .logo {
+  color: #eee;
+  font-size: 22px;
+  /* font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar .logo:hover {
+  cursor: pointer;
+}
+
+.navbar .logo h2 {
+  font-size: 28px;
+}
+
+.icon-img {
+  margin-right: 5px;
+}
+
+/* forms */
+
+.form-group input {
+  padding: 10px;
+  border-radius: 5px;
+  margin: 0 5px;
+  border: 1px #ddd solid;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #de3e34;
+}
