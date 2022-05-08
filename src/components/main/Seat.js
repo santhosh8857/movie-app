@@ -1,6 +1,9 @@
 // mojor component which holds the seat selection and proceed to payment page
 import { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
+
 import Navbar from "./Navbar";
 
 import seat from "../../images/seat.png";
@@ -10,7 +13,28 @@ import "../../css/main/navbar.css";
 import "../../css/main/seat.css";
 import "react-toastify/dist/ReactToastify.css";
 
+// payment
+
+// laodScript from Razorpay
+const loadScript = (src) => {
+  return new Promise((resolve) => {
+    const script = document.createElement("script");
+    script.src = src;
+
+    script.onload = () => {
+      resolve(true);
+    };
+
+    script.onerror = () => {
+      resolve(false);
+    };
+    document.body.appendChild(script);
+  });
+};
+
+// main component
 const Seat = () => {
+  const navigate = useNavigate();
   const [showModal, setShowModal] = useState(true);
 
   const [enteredSeats, setEnteredSeats] = useState();
@@ -36,6 +60,47 @@ const Seat = () => {
     { row: "I", seat: [1, 2, 3, 4, 5, 6, 7, 8, null, 9, 10, 11, 12, 13, 14] },
     { row: "J", seat: [1, 2, 3, 4, 5, 6, 7, 8, null, 9, 10, 11, 12, 13, 14] },
   ];
+
+  // payment
+  const toggleRazorpay = async (totalPayment) => {
+    const res = await loadScript(
+      "https://checkout.razorpay.com/v1/checkout.js"
+    );
+
+    if (!res) {
+      alert(
+        "Razorpay SDK failed to load. Please check your network connection!"
+      );
+      return;
+    }
+
+    axios
+      .post("https://movie-bookingapp.herokuapp.com/movies/create-orderId", {
+        amount: totalPayment * 100, // 100 paise = 1 rupee
+      })
+      .then((resp) => {
+        const options = {
+          key: process.env.REACT_APP_RAZORPAY_KEY,
+          amount: parseInt(resp.data.data.amount * 100),
+          currency: resp.data.data.currency,
+          name: "Show Time",
+          description: "Thank you choosing us!",
+          // image: order,
+          order_id: resp.data.data.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+          handler: function (response) {
+            alert("Payment Successfull!");
+            navigate("/");
+          },
+          prefill: {
+            name: "Santhosh",
+            email: "santhosh8857@example.com",
+            contact: "987867124",
+          },
+        };
+        var payment = new window.Razorpay(options);
+        payment.open();
+      });
+  };
 
   const handleClick = () => {
     setShowModal(!showModal);
@@ -101,7 +166,7 @@ const Seat = () => {
       <div className={showModal ? "show-modal" : "modal"}>
         <div className="modal-container">
           <span className="close" onClick={handleClick}>
-            <i class="fa-solid fa-xmark"></i>
+            <i className="fa-solid fa-xmark"></i>
           </span>
           <div className="model-content">
             <img src={seat} alt="seat" className="seat-img" />
@@ -178,7 +243,7 @@ const Seat = () => {
                 <tr>
                   <td>
                     <i
-                      class="fa-solid fa-couch seat-icon"
+                      className="fa-solid fa-couch seat-icon"
                       style={{ visibility: "hidden" }}
                     ></i>
                   </td>
@@ -196,7 +261,7 @@ const Seat = () => {
                           <td key={key}>
                             {seat !== null ? (
                               <i
-                                class="fa-solid fa-couch seat-icon"
+                                className="fa-solid fa-couch seat-icon"
                                 style={{
                                   color: selectedSeat.includes(seats.row + seat)
                                     ? "#de3e34"
@@ -208,7 +273,7 @@ const Seat = () => {
                               ></i>
                             ) : (
                               <i
-                                class="fa-solid fa-couch seat-icon"
+                                className="fa-solid fa-couch seat-icon"
                                 style={{ visibility: "hidden" }}
                               ></i>
                             )}
@@ -226,10 +291,22 @@ const Seat = () => {
           </div>
         </div>
       </div>
+      {selectedSeat.length === 0 ? (
+        <></>
+      ) : (
+        <div className="payment">
+          <button
+            className="btn btn-primary"
+            onClick={() => {
+              toggleRazorpay(selectedSeat.length * 180);
+            }}
+          >
+            Proceed to Pay &#8377; {selectedSeat.length * 180}
+          </button>
+        </div>
+      )}
     </>
   );
 };
-
-// <i class="fa-solid fa-couch"></i>
 
 export default Seat;
