@@ -131,3 +131,17 @@ table tbody th {
 .payment button {
   color: #fff;
 }
+
+@media (min-width: 360px) and (max-width: 767px) {
+  .seat-heading {
+    justify-content: space-evenly;
+  }
+
+  .seat-heading .heading {
+    font-size: 16px;
+  }
+
+  .btn {
+    padding: 10px;
+  }
+}

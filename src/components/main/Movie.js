@@ -9,9 +9,10 @@ import { useNavigate, useParams } from "react-router-dom";
 
 import Navbar from "./Navbar";
 import MovieCard from "../utilities/MovieCard";
+import Footer from "./Footer";
 
 import "../../css/main/movie.css";
-import Footer from "./Footer";
+import "../../css/mobile/mobile.css";
 
 const Movie = () => {
   // get the id from url
@@ -41,7 +42,7 @@ const Movie = () => {
           <div className="movie-container">
             <MovieCard movie={movie} />
             <div className="movie-details">
-              <h1>{movie.name}</h1>
+              <h1 id="heading">{movie.name}</h1>
               <p>
                 {movie.movieLength}&nbsp;&nbsp;
                 <i className="fa-solid fa-circle circle-icon"></i>&nbsp;&nbsp;
@@ -64,7 +65,7 @@ const Movie = () => {
             </div>
           </div>
         </div>
-        <div className="movie-section-container">
+        <div className="movie-section-container" id="movie-section-container">
           <div className="movie-info-container">
             <div>
               <h2 className="heading">

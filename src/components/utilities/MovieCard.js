@@ -1,4 +1,5 @@
 import "../../css/utilities/moviecard.css";
+import "../../css/mobile/mobile.css";
 
 const MovieCard = ({ movie }) => {
   return (

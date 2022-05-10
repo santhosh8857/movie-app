@@ -1,20 +1,17 @@
 .showcase {
   height: 45vh;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 
 #showcase1 {
   background-image: url("../../images/kgf-showcase.jpg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
   width: 100%;
 }
 
 #showcase2 {
   background-image: url("../../images/marvel-showcase.jpg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
   width: 100%;
 }
 

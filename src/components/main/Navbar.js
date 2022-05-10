@@ -44,34 +44,32 @@ const Navbar = () => {
   return (
     <>
       <ToastContainer />
-      <div>
-        <div className="nav-container">
-          <div className="navbar">
-            <div className="logo" onClick={() => navigate("/")}>
-              {/* <i class="fa-solid fa-ticket"></i> */}
-              <img src={movieIcon} className="icon-img" alt="icon" />
-              <h2>
-                <span className="text-primary">Show</span> Time
-              </h2>
-            </div>
-            <div>
-              <form onSubmit={handleSubmit}>
-                <div className="form-group">
-                  <input
-                    type="text"
-                    name="name"
-                    id="id"
-                    value={enteredMovie}
-                    placeholder="Enter movie for search"
-                    onChange={handleChange}
-                  />
-                  <button className="btn btn-primary" type="submit">
-                    Search &nbsp;
-                    <i className="fa-solid fa-magnifying-glass"></i>
-                  </button>
-                </div>
-              </form>
-            </div>
+      <div className="nav-container">
+        <div className="navbar">
+          <div className="logo" onClick={() => navigate("/")}>
+            {/* <i class="fa-solid fa-ticket"></i> */}
+            <img src={movieIcon} className="icon-img" alt="icon" />
+            <h2>
+              <span className="text-primary">Show</span> Time
+            </h2>
+          </div>
+          <div>
+            <form onSubmit={handleSubmit}>
+              <div className="form-group">
+                <input
+                  type="text"
+                  name="name"
+                  id="id"
+                  value={enteredMovie}
+                  placeholder="Enter movie for search"
+                  onChange={handleChange}
+                />
+                <button className="btn btn-primary" type="submit">
+                  Search &nbsp;
+                  <i className="fa-solid fa-magnifying-glass"></i>
+                </button>
+              </div>
+            </form>
           </div>
         </div>
       </div>

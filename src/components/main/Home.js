@@ -9,6 +9,7 @@ import Card from "../utilities/Card";
 
 import "../../css/main/home.css";
 import "../../css/main/footer.css";
+import "../../css/mobile/mobile.css";
 
 const Home = () => {
   // toggle showcase image

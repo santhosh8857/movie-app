@@ -107,3 +107,43 @@
   border-radius: 5px;
   padding: 5px;
 }
+
+@media (min-width: 360px) and (max-width: 767px) {
+  .showcase-img {
+    height: 40vh;
+  }
+
+  .movie-card {
+    display: none;
+  }
+
+  .movie-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .movie-details #heading {
+    font-size: 50px;
+  }
+
+  .movie-section-container {
+    height: 1350px;
+  }
+
+  .cast-container {
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: nowrap;
+  }
+
+  .rating-container {
+    flex-direction: column;
+    flex-wrap: nowrap;
+  }
+
+  .review {
+    width: 90%;
+    height: 100%;
+  }
+}
