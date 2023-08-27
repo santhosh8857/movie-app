@@ -16,7 +16,7 @@ const Navbar = () => {
 
   const getMovieData = () => {
     axios
-      .post("https://movie-bookingapp.herokuapp.com/movies/get-movie", {
+      .post("https://jade-elated-tuna.cyclic.cloud/movies/get-movie", {
         name: enteredMovie,
       })
       .then((resp) => {
