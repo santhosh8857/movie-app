@@ -24,7 +24,7 @@ const Movie = () => {
 
   useEffect(() => {
     axios
-      .get(`https://movie-bookingapp.herokuapp.com/movies/${id}`)
+      .get(`https://jade-elated-tuna.cyclic.cloud/movies/${id}`)
       .then((resp) => setMovie(resp.data.data))
       .catch((err) => console.log(err));
   }, [id]);

@@ -75,7 +75,7 @@ const Seat = () => {
     }
 
     axios
-      .post("https://movie-bookingapp.herokuapp.com/movies/create-orderId", {
+      .post("https://jade-elated-tuna.cyclic.cloud/movies/create-orderId", {
         amount: totalPayment * 100, // 100 paise = 1 rupee
       })
       .then((resp) => {

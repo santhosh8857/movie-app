@@ -21,7 +21,7 @@ const Home = () => {
   // fetch movies
   const getMovies = () => {
     axios
-      .get("https://movie-bookingapp.herokuapp.com/movies")
+      .get("https://jade-elated-tuna.cyclic.cloud/movies")
       .then((resp) => setMovies(resp.data.data))
       .catch((err) => console.log(err));
   };
