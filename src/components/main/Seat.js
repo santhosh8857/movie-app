@@ -92,8 +92,8 @@ const Seat = () => {
             navigate("/");
           },
           prefill: {
-            name: "Santhosh",
-            email: "santhosh8857@example.com",
+            name: "Sangeetha",
+            email: "sangeetha@example.com",
             contact: "987867124",
           },
         };
